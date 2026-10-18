@@ -1,0 +1,31 @@
+{{ define "main" }}
+<div class="posts">
+  {{ $paginator := .Paginate (where site.RegularPages "Section" "posts") }}
+  {{ range $paginator.Pages }}
+  <div class="post">
+    <h1 class="post-title">
+      <a href="{{ .RelPermalink }}">
+        {{ .Title }}
+      </a>
+    </h1>
+
+    <span class="post-date">{{ .Date.Format "02 Jan 2006" }}</span>
+
+    {{ .Content }}
+  </div>
+  {{ end }}
+</div>
+
+<div class="pagination">
+  {{ with $paginator.Next }}
+    <a class="pagination-item older" href="{{ .URL }}">Older</a>
+  {{ else }}
+    <span class="pagination-item older">Older</span>
+  {{ end }}
+  {{ with $paginator.Prev }}
+    <a class="pagination-item newer" href="{{ .URL }}">Newer</a>
+  {{ else }}
+    <span class="pagination-item newer">Newer</span>
+  {{ end }}
+</div>
+{{ end }}

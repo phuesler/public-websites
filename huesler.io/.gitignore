@@ -1,6 +1,8 @@
-# Ignore docs files
-_gh_pages
-_site
+# Hugo build output
+/public
+/resources
+.hugo_build.lock
+
 .ruby-version
 
 # Numerous always-ignore extensions
