@@ -1,0 +1,48 @@
+baseURL = 'http://www.huesler.io/'
+locale = 'en-us'
+title = 'huesler.io'
+disableKinds = ['taxonomy', 'term', 'section']
+
+[params]
+  tagline = 'My 2 cents'
+  description = 'A blog written by Patrick Huesler'
+  [params.author]
+    name = 'Patrick Huesler'
+    url = 'https://twitter.com/phuesler'
+
+[pagination]
+  pagerSize = 5
+
+# Matches the Jekyll `permalink: pretty` URLs of the old site.
+[permalinks.page]
+  posts = '/:year/:month/:day/:slug/'
+
+[markup.goldmark.renderer]
+  # Posts embed raw HTML (gists, slides, videos, tweets).
+  unsafe = true
+
+[markup.highlight]
+  # Emit Pygments-style classes styled by static/public/css/syntax.css.
+  noClasses = false
+
+[mediaTypes.'application/atom+xml']
+  suffixes = ['xml']
+
+[outputFormats.atom]
+  mediaType = 'application/atom+xml'
+  baseName = 'atom'
+  isPlainText = false
+
+[outputs]
+  home = ['html', 'atom']
+  page = ['html']
+
+[menus]
+  [[menus.main]]
+    name = 'About'
+    pageRef = '/about'
+    weight = 10
+  [[menus.main]]
+    name = 'Archive'
+    pageRef = '/archive'
+    weight = 20
